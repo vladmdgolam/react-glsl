@@ -27,8 +27,8 @@ void main() {
     // float coeff = -m*uv.y+m;
 
     // float parabola = -pow(uv.y, 2.) + 1.;
-    float func = 1. - 3.*abs((1.0-u_mouse.y/500.)-uv.y);
-    st += cnoise2(st*1000.) * 0.075 * (func > 0. ? func : 0.);
+    float func = 1. - 1.5*abs((1.0-u_mouse.y/500.)-uv.y);
+    st += cnoise2(st*1000.) * 0.075 * (func > 0. ? func : 0.)*(abs(0.5-u_mouse.x/500.));
     // st += cnoise2(st*1000.)*0.075*sin(twopi*0.5*(uv.y) + twopi*0.25*sin(time) - twopi*0.25);
     // st += cnoise2(st*1000.)*0.075*uv.y;
     vec3 color = st.x > 0.5 ? clrs[0] : clrs[1];
