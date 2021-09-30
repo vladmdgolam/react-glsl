@@ -4,7 +4,6 @@ const useTrackMousePosition = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const updateMousePosition = (e: MouseEvent) => {
     var canvas = document.querySelector(".CanvasClip")
-    console.log(canvas)
     let offsetLeft = 0
     let offsetTop = 0
     if (canvas !== null && canvas instanceof HTMLElement) {

@@ -6,7 +6,7 @@ import Stats from "stats.js"
 // import useGetWindowSize from "../hooks/useGetWindowSize"
 import useTrackMousePosition from "../hooks/useTrackMousePosition"
 
-const fragment = require("./shaders/my/frag.glsl")
+const fragment = require("./shaders/my/frag2.glsl")
 
 const shaders = Shaders.create({
   practice: {
@@ -16,10 +16,12 @@ const shaders = Shaders.create({
 
 let payload = 0
 
-const MyShader: React.FC<{ stats: Stats }> = ({ stats }) => {
-  // const { width, height } = useGetWindowSize()
+// const ImageShader: React.FC<{ stats: Stats }> = ({ stats }) => {
+const ImageShader: React.FC<{ stats: Stats }> = ({ stats }) => {
   const { x, y } = useTrackMousePosition()
   const requestRef = useRef(0)
+
+  // image
 
   // timer for animate
   const [timer, setTimer] = useState(0)
@@ -35,18 +37,26 @@ const MyShader: React.FC<{ stats: Stats }> = ({ stats }) => {
     return () => window.cancelAnimationFrame(requestRef.current)
   }, [animate])
 
+  // const image = process.env.PUBLIC_URL + "/images/1.png"
+  // console.log(image.width)
+
+  const width = 572
+  const height = 1234
+
   return (
-    <Surface width={500} height={500}>
+    <Surface width={width/2} height={height/2}>
       <Node
         shader={shaders.practice}
         uniforms={{
           time: timer,
-          u_mouse: [x, y],
-          // u_resolution: [width, height],
+          mouse: [x*2 / width, y*2 / height],
+          image: process.env.PUBLIC_URL + "/images/1.png",
+          image2: process.env.PUBLIC_URL + "/images/2.png",
+          aspect: 572/1234
         }}
       />
     </Surface>
   )
 }
 
-export default MyShader
+export default ImageShader

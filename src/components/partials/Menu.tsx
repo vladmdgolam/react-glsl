@@ -9,7 +9,8 @@ const Menu: React.FC<{ changeCanvas: (payload: string) => void }> = ({ changeCan
       {/* <AppMenuButton name="SampleShader" changeCanvas={changeCanvas} />
       <AppMenuButton name="GLSLPractice" changeCanvas={changeCanvas}/>
       <AppMenuButton name="TheBookOfShaders" changeCanvas={changeCanvas}/> */}
-      <AppMenuButton name="MyShader" changeCanvas={changeCanvas}/>
+      <AppMenuButton name="first" changeCanvas={changeCanvas}/>
+      <AppMenuButton name="second" changeCanvas={changeCanvas}/>
     </div>
   );
 }

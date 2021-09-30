@@ -27,6 +27,7 @@ const SampleShader: React.FC<{ stats: Stats }> = ({ stats }) => {
     setTimer(payload);
     stats.end();
     requestRef.current = window.requestAnimationFrame(animate);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   useEffect(() => {
     requestRef.current = window.requestAnimationFrame(animate);

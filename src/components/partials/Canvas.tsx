@@ -8,9 +8,10 @@ import TheBookOfShaders from './TheBookOfShaders';
 
 import './Canvas.scss';
 import MyShader from './MyShader';
+import ImageShader from './MyShaders';
 
 const Canvas: React.FC = () => {
-  const [name, setName] = useState("MyShader")
+  const [name, setName] = useState("second")
   const mount = useRef<HTMLDivElement>(null);
   const requestRef = useRef(0);
 
@@ -38,8 +39,10 @@ const Canvas: React.FC = () => {
         return <GLSLPractice stats={stats} />;
       case 'TheBookOfShaders':
         return <TheBookOfShaders stats={stats} />;
-      case 'MyShader':
+      case 'first':
         return <MyShader stats={stats} />;
+      case 'second':
+        return <ImageShader stats={stats} />
       default:
         return <div>select</div>;
     }
